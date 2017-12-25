@@ -6,16 +6,16 @@ import org.junit.jupiter.params.converter.ArgumentConverter;
 
 /**
  * This class demonstrates how we can implement a custom converter
- * that can convert {@code String} objects into {@link Pet} objects.
+ * that can convert {@code String} objects into {@link Message} objects.
  */
-class PetConverter implements ArgumentConverter {
+final class MessageConverter implements ArgumentConverter {
 
     @Override
     public Object convert(Object source, ParameterContext context) throws ArgumentConversionException {
         checkSource(source);
 
         String sourceString = (String) source;
-        return Pet.valueOf(sourceString);
+        return new Message(sourceString);
     }
 
     private void checkSource(Object source) {
