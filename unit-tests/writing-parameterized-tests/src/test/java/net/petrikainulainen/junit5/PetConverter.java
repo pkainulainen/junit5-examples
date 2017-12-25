@@ -29,7 +29,7 @@ class PetConverter implements ArgumentConverter {
 
         String sourceString = (String) source;
         if (sourceString.trim().isEmpty()) {
-            throw new ArgumentConversionException("Cannot convert an source string");
+            throw new ArgumentConversionException("Cannot convert an empty source string");
         }
     }
 }
