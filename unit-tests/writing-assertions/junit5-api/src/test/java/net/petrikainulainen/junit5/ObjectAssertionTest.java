@@ -92,49 +92,49 @@ class ObjectAssertionTest {
                 assertEquals(EXPECTED, ACTUAL, "The strings are not equal");
             }
         }
+    }
+
+    @Nested
+    @DisplayName("When two objects aren't equal")
+    class WhenTwoObjectsAreNotEqual {
 
         @Nested
-        @DisplayName("When two objects aren't equal")
-        class WhenTwoObjectsAreNotEqual {
+        @DisplayName("When objects are integers")
+        class WhenObjectsAreIntegers {
 
-            @Nested
-            @DisplayName("When objects are integers")
-            class WhenObjectsAreIntegers {
+            private final Integer ACTUAL = 9;
+            private final Integer EXPECTED = 4;
 
-                private final Integer ACTUAL = 9;
-                private final Integer EXPECTED = 4;
-
-                @Test
-                @DisplayName("Should not be equal")
-                void shouldNotBeEqual() {
-                    assertNotEquals(EXPECTED, ACTUAL);
-                }
-
-                @Test
-                @DisplayName("Should not be equal (with custom error message)")
-                void shouldNotBeEqualWithCustomErrorMessage() {
-                    assertNotEquals(EXPECTED, ACTUAL, "The integers are equal");
-                }
+            @Test
+            @DisplayName("Should not be equal")
+            void shouldNotBeEqual() {
+                assertNotEquals(EXPECTED, ACTUAL);
             }
 
-            @Nested
-            @DisplayName("When objects are strings")
-            class WhenObjectsAreStrings {
+            @Test
+            @DisplayName("Should not be equal (with custom error message)")
+            void shouldNotBeEqualWithCustomErrorMessage() {
+                assertNotEquals(EXPECTED, ACTUAL, "The integers are equal");
+            }
+        }
 
-                private final String ACTUAL = "Foo";
-                private final String EXPECTED = "Bar";
+        @Nested
+        @DisplayName("When objects are strings")
+        class WhenObjectsAreStrings {
 
-                @Test
-                @DisplayName("Should not be equal")
-                void shouldNotBeEqual() {
-                    assertNotEquals(EXPECTED, ACTUAL);
-                }
+            private final String ACTUAL = "Foo";
+            private final String EXPECTED = "Bar";
 
-                @Test
-                @DisplayName("Should not be equal (with custom error message)")
-                void shouldNotBeEqualWithCustomErrorMessage() {
-                    assertNotEquals(EXPECTED, ACTUAL, "The strings are equal");
-                }
+            @Test
+            @DisplayName("Should not be equal")
+            void shouldNotBeEqual() {
+                assertNotEquals(EXPECTED, ACTUAL);
+            }
+
+            @Test
+            @DisplayName("Should not be equal (with custom error message)")
+            void shouldNotBeEqualWithCustomErrorMessage() {
+                assertNotEquals(EXPECTED, ACTUAL, "The strings are equal");
             }
         }
     }
