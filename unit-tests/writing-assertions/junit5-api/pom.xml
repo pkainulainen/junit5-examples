@@ -4,7 +4,7 @@
     <groupId>net.petrikainulainen.junit5</groupId>
     <artifactId>writing-assertions-with-junit5-api</artifactId>
     <version>0.1</version>
-    <name>Writing Parameterized Tests</name>
+    <name>Writing Assertions With JUnit 5 Assertions API</name>
     <description>
         This example demonstrates how we can write assertions by using the "standard" JUnit 5 assertion API.
     </description>

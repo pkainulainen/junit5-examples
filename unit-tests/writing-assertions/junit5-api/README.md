@@ -1,4 +1,4 @@
-# Writing Assertions With JUnit 5 API
+# Writing Assertions With JUnit 5 Assertions API
 
 This example demonstrates how we can write assertions by using the "standard" JUnit 5 assertion API.
 
