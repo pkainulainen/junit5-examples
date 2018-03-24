@@ -62,6 +62,17 @@ class MapAssertionTest {
     }
 
     @Nested
+    @DisplayName("When we check if the map contains the correct value")
+    class WhenWeCheckIfMapContainsCorrectValue {
+
+        @Test
+        @DisplayName("Should contain the correct value")
+        void shouldContainCorrectValue() {
+            assertThat(map, hasEntry(KEY, VALUE));
+        }
+    }
+
+    @Nested
     @DisplayName("When we get a value from the map")
     class WhenWeGetValueFromMap {
 
