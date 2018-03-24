@@ -82,6 +82,21 @@ class ListAssertionTest {
         }
 
         @Test
+        @DisplayName("Should contain a correct element")
+        void shouldContainCorrectElement() {
+            assertThat(list, hasItem(first));
+        }
+
+        @Test
+        @DisplayName("Should contain a correct element (with custom error message)")
+        void shouldContainCorrectElementWithCustomErrorMessage() {
+            assertThat(String.format("The list doesn't contain the expected object: %s", first),
+                    list,
+                    hasItem(first)
+            );
+        }
+
+        @Test
         @DisplayName("Should not contain an incorrect element")
         void shouldNotContainIncorrectElement() {
             assertThat(list, not(hasItem(new Object())));
