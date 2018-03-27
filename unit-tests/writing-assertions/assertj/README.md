@@ -1,0 +1,13 @@
+# Writing Assertions With AssertJ
+
+This example demonstrates how we can write assertions with AssertJ.
+
+## Running Unit Tests With Maven
+
+You can run your unit tests by running the following command at the command prompt:
+
+    mvn clean test   
+
+## Running Unit Tests With Gradle
+
+    gradle clean test 
