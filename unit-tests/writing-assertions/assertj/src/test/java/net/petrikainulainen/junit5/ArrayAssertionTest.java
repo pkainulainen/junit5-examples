@@ -18,54 +18,114 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ArrayAssertionTest {
 
     @Nested
-    @DisplayName("When arrays contain integers")
-    class WhenArraysContainIntegers {
+    @DisplayName("When two arrays are equal")
+    class WhenArraysAreEqual {
 
-        final int[] ACTUAL = new int[]{2, 5, 7};
-        final int[] EXPECTED = new int[]{2, 5, 7};
+        @Nested
+        @DisplayName("When arrays contain integers")
+        class WhenArraysContainIntegers {
 
-        @Test
-        @DisplayName("Should contain the same integers")
-        void shouldContainSameIntegers() {
-            assertThat(ACTUAL).isEqualTo(EXPECTED);
+            final int[] ACTUAL = new int[]{2, 5, 7};
+            final int[] EXPECTED = new int[]{2, 5, 7};
+
+            @Test
+            @DisplayName("Should contain the same integers")
+            void shouldContainSameIntegers() {
+                assertThat(ACTUAL).isEqualTo(EXPECTED);
+            }
+
+            @Test
+            @DisplayName("Should contain the same integers (with custom error message)")
+            void shouldContainSameIntegersWithCustomErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                "Expected array: %s but got array: %s",
+                                Arrays.toString(EXPECTED),
+                                Arrays.toString(ACTUAL)
+                        )
+                        .isEqualTo(EXPECTED);
+            }
         }
 
-        @Test
-        @DisplayName("Should contain the same integers (with custom error message)")
-        void shouldContainSameIntegersWithCustomErrorMessage() {
-            assertThat(ACTUAL)
-                    .overridingErrorMessage(
-                            "Expected array: %s but got array: %s",
-                            Arrays.toString(EXPECTED),
-                            Arrays.toString(ACTUAL)
-                    )
-                    .isEqualTo(EXPECTED);
+        @Nested
+        @DisplayName("When arrays contain strings")
+        class WhenArraysContainStrings {
+
+            final String[] ACTUAL = new String[] {"foo", "bar"};
+            final String[] EXPECTED = new String[] {"foo", "bar"};
+
+            @Test
+            @DisplayName("Should contain the same strings")
+            void shouldContainSameStrings() {
+                assertThat(ACTUAL).isEqualTo(EXPECTED);
+            }
+
+            @Test
+            @DisplayName("Should contain the same strings (with custom error message)")
+            void shouldContainSameStringsWithCustomErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                "Expected array: %s but got array: %s",
+                                Arrays.toString(EXPECTED),
+                                Arrays.toString(ACTUAL)
+                        )
+                        .isEqualTo(EXPECTED);
+            }
         }
     }
 
     @Nested
-    @DisplayName("When arrays contain strings")
-    class WhenArraysContainStrings {
+    @DisplayName("When two arrays are not equal")
+    class WhenArraysAreNotEqual {
 
-        final String[] ACTUAL = new String[] {"foo", "bar"};
-        final String[] EXPECTED = new String[] {"foo", "bar"};
+        @Nested
+        @DisplayName("When arrays contain integers")
+        class WhenArraysContainIntegers {
 
-        @Test
-        @DisplayName("Should contain the same strings")
-        void shouldContainSameStrings() {
-            assertThat(ACTUAL).isEqualTo(EXPECTED);
+            final int[] ACTUAL = new int[]{2, 6, 7};
+            final int[] EXPECTED = new int[]{2, 5, 7};
+
+            @Test
+            @DisplayName("Should not contain the same integers")
+            void shouldNotContainSameIntegers() {
+                assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+            }
+
+            @Test
+            @DisplayName("Should not contain the same integers (with custom error message)")
+            void shouldNotContainSameIntegersWithCustomErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                "Expected arrays to not be equal but both are: %s",
+                                Arrays.toString(EXPECTED)
+                        )
+                        .isNotEqualTo(EXPECTED);
+            }
         }
 
-        @Test
-        @DisplayName("Should contain the same strings (with custom error message)")
-        void shouldContainSameStringsWithCustomErrorMessage() {
-            assertThat(ACTUAL)
-                    .overridingErrorMessage(
-                            "Expected array: %s but got array: %s",
-                            Arrays.toString(EXPECTED),
-                            Arrays.toString(ACTUAL)
-                    )
-                    .isEqualTo(EXPECTED);
+        @Nested
+        @DisplayName("When arrays contain strings")
+        class WhenArraysContainStrings {
+
+            final String[] ACTUAL = new String[] {"foo", "bar1"};
+            final String[] EXPECTED = new String[] {"foo", "bar"};
+
+            @Test
+            @DisplayName("Should not contain the same strings")
+            void shouldNotContainSameStrings() {
+                assertThat(ACTUAL).isNotEqualTo(EXPECTED);
+            }
+
+            @Test
+            @DisplayName("Should not contain the same strings (with custom error message)")
+            void shouldNotContainSameStringsWithCustomErrorMessage() {
+                assertThat(ACTUAL)
+                        .overridingErrorMessage(
+                                "Expected arrays to not be equal but both are: %s",
+                                Arrays.toString(EXPECTED)
+                        )
+                        .isNotEqualTo(EXPECTED);
+            }
         }
     }
 }
