@@ -33,8 +33,8 @@ class MapAssertionTest {
     }
 
     @Nested
-    @DisplayName("When we check if the map contains the given key")
-    class WhenWeCheckIfMapContainsGivenKey {
+    @DisplayName("When we verify that the map contains the given key")
+    class WhenWeVerifyThatMapContainsGivenKey {
 
         @Test
         @DisplayName("Should contain the correct key")
@@ -66,8 +66,8 @@ class MapAssertionTest {
     }
 
     @Nested
-    @DisplayName("When we check if the map contains the correct value")
-    class WhenWeCheckIfMapContainsCorrectValue {
+    @DisplayName("When we verify that the map contains the correct value")
+    class WhenWeVerifyThatMapContainsCorrectValue {
 
         @Test
         @DisplayName("Should contain the correct value")
@@ -85,6 +85,29 @@ class MapAssertionTest {
                             KEY
                     )
                     .containsEntry(KEY, VALUE);
+        }
+    }
+
+    @Nested
+    @DisplayName("When we verify that the map doesn't contain the given value by using an incorrect key")
+    class WhenWeVerifyThatMapDoesNotContainGivenValueByUsingIncorrectKey {
+
+        @Test
+        @DisplayName("Should not contain the given value")
+        void shouldContainCorrectValue() {
+            assertThat(map).doesNotContainEntry(INCORRECT_KEY, VALUE);
+        }
+
+        @Test
+        @DisplayName("Should contain the given value (with custom error message)")
+        void shouldContainCorrectValueWithCustomErrorMessage() {
+            assertThat(map)
+                    .overridingErrorMessage(
+                            "Expected the map to not contain the value: %s for the key: %s but it containeds it",
+                            VALUE,
+                            KEY
+                    )
+                    .doesNotContainEntry(KEY, VALUE);
         }
     }
 
