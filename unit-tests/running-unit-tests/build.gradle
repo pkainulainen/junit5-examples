@@ -16,16 +16,16 @@ repositories {
 
 dependencies {
     testCompile(
-            'org.junit.jupiter:junit-jupiter-api:5.0.1'
+            'org.junit.jupiter:junit-jupiter-api:5.1.0'
     )
     testRuntime(
-            'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+            'org.junit.jupiter:junit-jupiter-engine:5.1.0'
             // If your IDE throws an exception when you try to run the example
             // test, it's not bundled with the correct JUnit 5 version. You can
             // solve this problem by uncommenting the following dependencies.
-            //'org.junit.vintage:junit-vintage-engine:4.12.1',
-            //'org.junit.platform:junit-platform-launcher:1.0.1',
-            //'org.junit.platform:junit-platform-runner:1.0.1'
+            //'org.junit.vintage:junit-vintage-engine:5.1.0',
+            //'org.junit.platform:junit-platform-launcher:1.1.0',
+            //'org.junit.platform:junit-platform-runner:1.1.0'
     )
 }
 
