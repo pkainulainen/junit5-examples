@@ -49,6 +49,11 @@ class MapAssertionTest {
                     .overridingErrorMessage("The map doesn't contain the key: %s", KEY)
                     .containsKey(KEY);
         }
+    }
+
+    @Nested
+    @DisplayName("When we verify that the map does not contain the given key")
+    class WhenWeVerifyThatMapDoesNotContainGivenKey {
 
         @Test
         @DisplayName("Should not contain the incorrect key")
@@ -66,18 +71,18 @@ class MapAssertionTest {
     }
 
     @Nested
-    @DisplayName("When we verify that the map contains the correct value")
+    @DisplayName("When we verify that the map contains the given entry")
     class WhenWeVerifyThatMapContainsCorrectValue {
 
         @Test
-        @DisplayName("Should contain the correct value")
-        void shouldContainCorrectValue() {
+        @DisplayName("Should contain the given entry")
+        void shouldContainGivenEntry() {
             assertThat(map).containsEntry(KEY, VALUE);
         }
 
         @Test
-        @DisplayName("Should contain the correct value (with custom error message)")
-        void shouldContainCorrectValueWithCustomErrorMessage() {
+        @DisplayName("Should contain the given entry (with custom error message)")
+        void shouldContainGivenEntryWithCustomErrorMessage() {
             assertThat(map)
                     .overridingErrorMessage(
                             "The map didn't contain the value: %s for the key: %s",
@@ -89,25 +94,25 @@ class MapAssertionTest {
     }
 
     @Nested
-    @DisplayName("When we verify that the map doesn't contain the given value by using an incorrect key")
-    class WhenWeVerifyThatMapDoesNotContainGivenValueByUsingIncorrectKey {
+    @DisplayName("When we verify that the map doesn't contain the given entry")
+    class WhenWeVerifyThatMapDoesNotContainGivenEntry {
 
         @Test
-        @DisplayName("Should not contain the given value")
-        void shouldContainCorrectValue() {
+        @DisplayName("Should not contain the given entry")
+        void shouldContainGivenEntry() {
             assertThat(map).doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
 
         @Test
-        @DisplayName("Should contain the given value (with custom error message)")
-        void shouldContainCorrectValueWithCustomErrorMessage() {
+        @DisplayName("Should contain the given entry (with custom error message)")
+        void shouldContainGivenEntryWithCustomErrorMessage() {
             assertThat(map)
                     .overridingErrorMessage(
-                            "Expected the map to not contain the value: %s for the key: %s but it containeds it",
+                            "Expected the map to not contain the value: %s for the key: %s but it contained it",
                             VALUE,
-                            KEY
+                            INCORRECT_KEY
                     )
-                    .doesNotContainEntry(KEY, VALUE);
+                    .doesNotContainEntry(INCORRECT_KEY, VALUE);
         }
     }
 
