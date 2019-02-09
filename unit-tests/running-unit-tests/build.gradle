@@ -5,20 +5,8 @@ repositories {
 }
 
 dependencies {
-    //If you want to run JUnit 3/4 test with JUnit Jupiter Platform,
-    //you to uncomment the following lines:
-    //testCompileOnly(
-    //        'junit:junit:4.12'
-    //)
-    testImplementation(
-            'org.junit.jupiter:junit-jupiter-api:5.1.0'
-    )
-    testRuntimeOnly(
-            'org.junit.jupiter:junit-jupiter-engine:5.1.0'
-            //If you want to run JUnit 3/4 test with JUnit Jupiter Platform,
-            //you have add the following dependency to this dependency configuration:
-            //'org.junit.vintage:junit-vintage-engine:5.1.0'
-    )
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
 }
 test {
     useJUnitPlatform()
