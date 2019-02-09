@@ -31,7 +31,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>introduction-to-junit5</finalName>
+        <finalName>running-unit-tests</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
