@@ -5,7 +5,7 @@ repositories {
 }
 
 dependencies {
-    testCompile(
+    testImplementation(
             'org.junit.jupiter:junit-jupiter-api:5.4.2',
             'org.hamcrest:hamcrest-library:2.1'
     )
