@@ -1,15 +1,13 @@
-apply plugin: 'java'
+plugins {
+    id  'java'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile(
-            'org.junit.jupiter:junit-jupiter-api:5.4.0',
-            'org.junit.jupiter:junit-jupiter-params:5.4.0'
-    )
-    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 }
 
 test {
