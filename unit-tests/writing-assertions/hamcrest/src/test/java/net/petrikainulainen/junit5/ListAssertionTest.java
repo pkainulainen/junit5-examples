@@ -123,13 +123,13 @@ class ListAssertionTest {
         @Test
         @DisplayName("Should contain the same elements")
         void shouldContainSameElements() {
-            assertThat(ACTUAL, is(EXPECTED));
+            assertThat(ACTUAL, equalTo(EXPECTED));
         }
 
         @Test
         @DisplayName("Should contain the same elements (with custom error message)")
         void shouldContainSameElementsWithCustomErrorMessage() {
-            assertThat("The lists don't contain the same elements", ACTUAL, is(EXPECTED));
+            assertThat("The lists don't contain the same elements", ACTUAL, equalTo(EXPECTED));
         }
     }
 }
