@@ -64,13 +64,13 @@ class ObjectAssertionTest {
             @Test
             @DisplayName("Should be equal")
             void shouldBeEqual() {
-                assertThat(ACTUAL, is(EXPECTED));
+                assertThat(ACTUAL, equalTo(EXPECTED));
             }
 
             @Test
             @DisplayName("Should be equal (with custom error message)")
             void shouldBeEqualWithCustomErrorMessage() {
-                assertThat("The integers are not equal", ACTUAL, is(EXPECTED));
+                assertThat("The integers are not equal", ACTUAL, equalTo(EXPECTED));
             }
         }
 
@@ -84,13 +84,13 @@ class ObjectAssertionTest {
             @Test
             @DisplayName("Should be equal")
             void shouldBeEqual() {
-                assertThat(ACTUAL, is(EXPECTED));
+                assertThat(ACTUAL, equalTo(EXPECTED));
             }
 
             @Test
             @DisplayName("Should be equal (with custom error message)")
             void shouldBeEqualWithCustomErrorMessage() {
-                assertThat("The strings are not equal", ACTUAL, is(EXPECTED));
+                assertThat("The strings are not equal", ACTUAL, equalTo(EXPECTED));
             }
         }
     }
