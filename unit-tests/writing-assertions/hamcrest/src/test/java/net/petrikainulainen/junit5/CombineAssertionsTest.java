@@ -31,8 +31,8 @@ class CombineAssertionsTest {
     @DisplayName("Should have the correct name")
     void shouldHaveCorrectName() {
         assertThat(person, allOf(
-                hasProperty("firstName", is(FIRST_NAME)),
-                hasProperty("lastName", is(LAST_NAME))
+                hasProperty("firstName", equalTo(FIRST_NAME)),
+                hasProperty("lastName", equalTo(LAST_NAME))
         ));
     }
 
@@ -40,8 +40,8 @@ class CombineAssertionsTest {
     @DisplayName("Should have correct first name or last name")
     void shouldHaveCorrectFirstNameOrLastName() {
         assertThat(person, anyOf(
-                hasProperty("firstName", is(FIRST_NAME)),
-                hasProperty("lastName", is(LAST_NAME))
+                hasProperty("firstName", equalTo(FIRST_NAME)),
+                hasProperty("lastName", equalTo(LAST_NAME))
         ));
     }
 }
