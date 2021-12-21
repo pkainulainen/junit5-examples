@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
@@ -26,7 +26,7 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain the same integers")
         void shouldContainSameIntegers() {
-            assertThat(ACTUAL, is(EXPECTED));
+            assertThat(ACTUAL, equalTo(EXPECTED));
         }
 
         @Test
@@ -34,7 +34,7 @@ class ArrayAssertionTest {
         void shouldContainSameIntegersWithCustomErrorMessage() {
             assertThat("The arrays don't contain the same integers",
                     ACTUAL,
-                    is(EXPECTED)
+                    equalTo(EXPECTED)
             );
         }
     }
@@ -49,7 +49,7 @@ class ArrayAssertionTest {
         @Test
         @DisplayName("Should contain the same strings")
         void shouldContainSameStrings() {
-            assertThat(ACTUAL, is(EXPECTED));
+            assertThat(ACTUAL, equalTo(EXPECTED));
         }
 
         @Test
@@ -57,7 +57,7 @@ class ArrayAssertionTest {
         void shouldContainSameStringsWithCustomErrorMessage() {
             assertThat("The arrays don't contain the same strings",
                     ACTUAL,
-                    is(EXPECTED)
+                    equalTo(EXPECTED)
             );
         }
     }
